@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hand and Foot Dominance Questionnaire</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f7fb;color:#172033;margin:0}.wrap{max-width:850px;margin:auto;padding:12px}
+.card{background:white;border-radius:14px;padding:18px;margin:12px 0;box-shadow:0 2px 10px #0000000d}
+h1{font-size:21px;text-align:center}h2{color:#174ea6;font-size:18px}
+label{font-weight:600;display:block;margin:12px 0 6px}input[type=text]{width:100%;padding:12px;border:1px solid #ccd2dc;border-radius:9px;font-size:16px;box-sizing:border-box}
+.opt{display:flex;align-items:center;gap:8px;border:1px solid #d9dee8;border-radius:9px;padding:10px;margin:6px 0;font-weight:400}.opt input{width:18px;height:18px}
+.activity{border:1px solid #d9dee8;border-radius:10px;padding:10px;margin:9px 0}.activity b{display:block;margin-bottom:7px}
+button{width:100%;padding:14px;border:0;border-radius:9px;background:#174ea6;color:white;font-size:17px;font-weight:bold}.muted{color:#667085;font-size:14px}
+.hidden{display:none}.success{text-align:center;color:#067647}
+</style></head><body><div class="wrap">
+<div class="card"><div class="muted" style="text-align:center">IMO STATE UNIVERSITY, OWERRI<br>DEPARTMENT OF HUMAN ANATOMY<br>FACULTY OF BASIC MEDICAL SCIENCES</div>
+<h1>QUESTIONNAIRE ON HAND AND FOOT DOMINANCE AMONG UNDERGRADUATE STUDENTS OF IMO STATE UNIVERSITY, OWERRI</h1>
+<p class="muted">Please answer every question honestly. There are no right or wrong answers. Your responses are confidential and will be used for academic research purposes only.</p></div>
+
+<form id="f">
+<div class="card"><h2>SECTION A: SOCIO-DEMOGRAPHIC INFORMATION</h2><p class="muted">Instruction: Tick the correct option or fill in the space provided.</p>
+<label>1. Age Group</label><div class="opts">
+<label class="opt"><input required type="radio" name="q1" value="15–19 years">15–19 years</label><label class="opt"><input type="radio" name="q1" value="20–24 years">20–24 years</label><label class="opt"><input type="radio" name="q1" value="25–29 years">25–29 years</label><label class="opt"><input type="radio" name="q1" value="30 years and above">30 years and above</label></div>
+<label>2. Sex</label><label class="opt"><input required type="radio" name="q2" value="Male">Male</label><label class="opt"><input type="radio" name="q2" value="Female">Female</label>
+<label>3. Faculty</label><input required name="q3" type="text">
+<label>4. Department</label><input required name="q4" type="text">
+<label>5. Level of Study</label>
+<label class="opt"><input required type="radio" name="q5" value="100 Level">100 Level</label><label class="opt"><input type="radio" name="q5" value="200 Level">200 Level</label><label class="opt"><input type="radio" name="q5" value="300 Level">300 Level</label><label class="opt"><input type="radio" name="q5" value="400 Level">400 Level</label><label class="opt"><input type="radio" name="q5" value="500 Level">500 Level</label>
+<label>6. State of Origin</label><input required name="q6" type="text">
+<label>7. Ethnic Group</label><label class="opt"><input required type="radio" name="q7" value="Igbo">Igbo</label><label class="opt"><input type="radio" name="q7" value="Yoruba">Yoruba</label><label class="opt"><input type="radio" name="q7" value="Hausa">Hausa</label><label class="opt"><input type="radio" name="q7" value="Other">Other</label>
+<div id="other" class="hidden"><label>Other (specify)</label><input name="q7_other" type="text"></div>
+<label>8. Do you participate regularly in any sport or physical activity?</label><label class="opt"><input required type="radio" name="q8" value="Yes">Yes</label><label class="opt"><input type="radio" name="q8" value="No">No</label>
+<div id="sport" class="hidden"><label>If Yes, specify sport/activity</label><input name="q8_sport" type="text"></div>
+</div>
+
+<div class="card"><h2>SECTION B: HAND DOMINANCE</h2><p class="muted">For each activity below, tick the hand you normally use. Answer based on your natural habit, not what you were trained to do.</p><div id="hands"></div>
+<label>19. Were you ever made to stop using your natural hand preference and switch to the other hand?</label><label class="opt"><input required type="radio" name="q19" value="Yes">Yes</label><label class="opt"><input type="radio" name="q19" value="No">No</label>
+<div id="switch" class="hidden"><label>20. If Yes, which hand was your natural preference before the switch?</label><label class="opt"><input type="radio" name="q20" value="Right Hand">Right Hand</label><label class="opt"><input type="radio" name="q20" value="Left Hand">Left Hand</label><label class="opt"><input type="radio" name="q20" value="Cannot remember">Cannot remember</label></div>
+<label>21. How do you describe yourself?</label><label class="opt"><input required type="radio" name="q21" value="Right-Handed">Right-Handed</label><label class="opt"><input type="radio" name="q21" value="Left-Handed">Left-Handed</label><label class="opt"><input type="radio" name="q21" value="Either-Handed">Either-Handed</label></div>
+
+<div class="card"><h2>SECTION C: FOOT DOMINANCE</h2><p class="muted">For each activity below, tick the foot you normally use. Answer based on your natural habit.</p><div id="feet"></div>
+<label>26. How do you describe yourself in terms of foot use?</label><label class="opt"><input required type="radio" name="q26" value="Right-Footed">Right-Footed</label><label class="opt"><input type="radio" name="q26" value="Left-Footed">Left-Footed</label><label class="opt"><input type="radio" name="q26" value="No preference">No preference</label></div>
+
+<div class="card"><button type="submit">Submit Questionnaire</button><p id="err" style="color:#b42318"></p></div>
+</form><div id="done" class="card success hidden"><h2>Thank you for your participation! ✓</h2><p>Your questionnaire has been submitted.</p></div>
+</div>
+<script>
+const hand=[["9","Writing"],["10","Eating (using a spoon or cup)"],["11","Brushing teeth"],["12","Throwing a ball"],["13","Opening a bottle or jar"],["14","Using a mobile phone"],["15","Drawing"],["16","Using scissors"],["17","Striking a match"],["18","Picking up an object from the floor"]];
+const foot=[["22","Kicking a ball"],["23","First foot used when climbing stairs"],["24","First foot used when you begin to walk"],["25","Stepping onto a stool or raised surface"]];
+function make(list,id,vals){document.getElementById(id).innerHTML=list.map(x=>`<div class="activity"><b>${x[0]}. ${x[1]}</b>${vals.map((v,i)=>`<label class="opt"><input ${i===0?"required":""} type="radio" name="q${x[0]}" value="${v}">${v}</label>`).join("")}</div>`).join("")}
+make(hand,"hands",["Right Hand","Left Hand","Both Hands Equally"]);make(foot,"feet",["Right Foot","Left Foot","No Particular Preference"]);
+document.querySelectorAll('[name=q7]').forEach(x=>x.onchange=()=>document.getElementById("other").classList.toggle("hidden",x.value!=="Other"||!x.checked));
+document.querySelectorAll('[name=q8]').forEach(x=>x.onchange=()=>{let s=x.value==="Yes"&&x.checked;document.getElementById("sport").classList.toggle("hidden",!s);document.querySelector('[name=q8_sport]').required=s});
+document.querySelectorAll('[name=q19]').forEach(x=>x.onchange=()=>{let s=x.value==="Yes"&&x.checked;document.getElementById("switch").classList.toggle("hidden",!s);document.querySelectorAll('[name=q20]').forEach(i=>i.required=s)});
+document.getElementById("f").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}let endpoint="https://script.google.com/macros/s/AKfycbxvtoULGKs2dpPIxTW4o_EOAFyjE0ntr8L35liE-fGc8WBM1f_C_dtnL3nAoY4wfKBw/exec";if(endpoint.startsWith("PASTE_")){document.getElementById("err").textContent="The response sheet has not been connected yet. Follow the README instructions.";return}let b=e.target.querySelector("button");b.disabled=true;b.textContent="Submitting…";let d=Object.fromEntries(new FormData(e.target));d.submittedAt=new Date().toISOString();try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});e.target.classList.add("hidden");document.getElementById("done").classList.remove("hidden")}catch(x){b.disabled=false;b.textContent="Submit Questionnaire";document.getElementById("err").textContent="Submission failed. Please try again."}};
+</script></body></html>
